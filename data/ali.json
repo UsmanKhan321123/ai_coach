@@ -1,0 +1,328 @@
+{
+  "student_id": "ali",
+  "created_at": "2026-09-12T18:24:44.143935",
+  "assessments": [
+    {
+      "topic": "public speaking",
+      "difficulty_requested": "beginner",
+      "total_questions": 6,
+      "correct_count": 1,
+      "score_percentage": 16.7,
+      "concept_scores": {
+        "speech_structure": 1.0,
+        "audience_analysis": 0.0,
+        "delivery": 0.0,
+        "nerves_management": 0.0,
+        "visual_aids": 0.0,
+        "opening_hook": 0.0
+      },
+      "strengths": [
+        "speech_structure"
+      ],
+      "weaknesses": [
+        "audience_analysis",
+        "delivery",
+        "nerves_management",
+        "visual_aids",
+        "opening_hook"
+      ],
+      "recommended_starting_level": "beginner",
+      "per_question_results": [
+        {
+          "id": "q1",
+          "concept": "speech_structure",
+          "question": "What are the three main parts of a well\u2011structured speech?",
+          "user_answer": "Introduction, Body, Conclusion",
+          "is_correct": true,
+          "score": 1.0,
+          "feedback": "These three sections organize content logically for the audience."
+        },
+        {
+          "id": "q2",
+          "concept": "audience_analysis",
+          "question": "Which factor is most important when analyzing your audience for a beginner speech?",
+          "user_answer": "Their favorite colors",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "Understanding what the audience already knows guides content depth."
+        },
+        {
+          "id": "q3",
+          "concept": "delivery",
+          "question": "Which vocal technique helps maintain audience interest?",
+          "user_answer": "Speaking in a monotone voice",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "Variation in pitch and pace keeps listeners engaged."
+        },
+        {
+          "id": "q4",
+          "concept": "nerves_management",
+          "question": "A simple method for reducing anxiety right before speaking is to:",
+          "user_answer": "Drink a large soda",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "Controlled breathing activates the relaxation response."
+        },
+        {
+          "id": "q5",
+          "concept": "visual_aids",
+          "question": "When using slides, the best practice for text amount per slide is to:",
+          "user_answer": "Include as much detail as possible",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "Concise bullet points support, not replace, spoken words."
+        },
+        {
+          "id": "q6",
+          "concept": "opening_hook",
+          "question": "Name one effective type of opening hook you can use in a beginner speech and briefly explain why it works.",
+          "user_answer": "dont know",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "Your response does not name an opening hook or explain why it works."
+        }
+      ],
+      "timestamp": "2026-09-12T18:28:26.449442"
+    }
+  ],
+  "roadmaps": {
+    "public speaking": {
+      "topic": "public speaking",
+      "difficulty": "beginner",
+      "generated_at": "2026-09-12T18:28:32.384946",
+      "overview": "This roadmap guides a beginner from foundational audience analysis and opening hooks through confidence building, delivery techniques, effective visual aids, and advanced speech structuring, reinforcing weaker areas early while leveraging existing strengths.",
+      "modules": [
+        {
+          "id": "module_1",
+          "title": "Foundations of Public Speaking",
+          "description": "Establish core understanding of the audience and craft compelling openings, with a quick refresher on speech structure.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_1_topic_1",
+              "name": "Understanding Your Audience",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "short video tutorial on audience profiling",
+                "article on demographic and psychographic analysis",
+                "interactive worksheet for audience research"
+              ],
+              "practice_prompt": "Create a one-page audience profile for a hypothetical talk on climate action, identifying key demographics, interests, and concerns."
+            },
+            {
+              "id": "module_1_topic_2",
+              "name": "Crafting an Engaging Opening Hook",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "short video tutorial on hook techniques",
+                "blog post with examples of effective openings",
+                "list of rhetorical devices"
+              ],
+              "practice_prompt": "Write three different opening hooks (a story, a statistic, and a question) for the same 5\u2011minute speech topic and note which audience segment each best serves."
+            },
+            {
+              "id": "module_1_topic_3",
+              "name": "Quick Review of Speech Structure",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "article on classic speech outlines",
+                "infographic of introduction\u2011body\u2011conclusion model"
+              ],
+              "practice_prompt": "Outline a 7\u2011minute speech using the three\u2011part structure, labeling each section and the main point it will cover."
+            }
+          ]
+        },
+        {
+          "id": "module_2",
+          "title": "Managing Nerves and Building Confidence",
+          "description": "Identify anxiety triggers and apply proven techniques to stay calm and focused before and during speaking.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_2_topic_1",
+              "name": "Recognizing Speech Anxiety Triggers",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "short video on common speaking fears",
+                "self\u2011assessment questionnaire"
+              ],
+              "practice_prompt": "Complete the questionnaire, then list your top three personal triggers and a brief plan to address each."
+            },
+            {
+              "id": "module_2_topic_2",
+              "name": "Techniques for Stress Reduction",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "guided breathing exercise audio",
+                "article on visualization for speakers",
+                "short video on progressive muscle relaxation"
+              ],
+              "practice_prompt": "Perform a 5\u2011minute breathing session followed by a 2\u2011minute visualization of delivering a successful speech, then journal the sensations and confidence level."
+            },
+            {
+              "id": "module_2_topic_3",
+              "name": "Mini\u2011Performance Practice",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "video tutorial on recording yourself",
+                "checklist for quick self\u2011feedback"
+              ],
+              "practice_prompt": "Record a 2\u2011minute talk on a familiar hobby, then watch the playback and note three areas where nerves affected delivery."
+            }
+          ]
+        },
+        {
+          "id": "module_3",
+          "title": "Delivery Skills",
+          "description": "Develop vocal variety, purposeful body language, and effective use of pauses to enhance audience engagement.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_3_topic_1",
+              "name": "Voice Modulation and Pace",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "short video on pitch and tempo control",
+                "article on the power of vocal dynamics"
+              ],
+              "practice_prompt": "Read a paragraph aloud three times, each with a different pacing and emphasis pattern; record and compare which version feels most engaging."
+            },
+            {
+              "id": "module_3_topic_2",
+              "name": "Body Language and Gestures",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "video demonstration of effective stage movement",
+                "infographic of open vs. closed body postures"
+              ],
+              "practice_prompt": "Deliver a 1\u2011minute segment while consciously using three purposeful gestures; note audience reaction (real or imagined) and personal comfort."
+            },
+            {
+              "id": "module_3_topic_3",
+              "name": "Using Pauses Effectively",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "short video on strategic pausing",
+                "article with pause timing guidelines"
+              ],
+              "practice_prompt": "Rewrite a 30\u2011second speech to insert two pauses for emphasis, then practice delivering it, timing each pause."
+            }
+          ]
+        },
+        {
+          "id": "module_4",
+          "title": "Visual Aids and Supporting Materials",
+          "description": "Learn to design clear slides, incorporate props, and manage technical logistics for smooth presentations.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_4_topic_1",
+              "name": "Designing Simple Slides",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "article on slide design best practices",
+                "short video tutorial on minimalist slide layouts"
+              ],
+              "practice_prompt": "Create a three\u2011slide deck for the earlier audience analysis outline, applying the 10\u201120\u201130 rule and visual hierarchy principles."
+            },
+            {
+              "id": "module_4_topic_2",
+              "name": "Integrating Props and Handouts",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "blog post on effective use of props",
+                "example handout template"
+              ],
+              "practice_prompt": "Select one tangible prop related to your speech topic and draft a brief handout that reinforces a key point; plan how you will introduce the prop during delivery."
+            },
+            {
+              "id": "module_4_topic_3",
+              "name": "Technical Setup and Backup Plans",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "checklist for presentation tech setup",
+                "short video on troubleshooting common issues"
+              ],
+              "practice_prompt": "Simulate a presentation environment, test your slide file on a different computer, and write a backup plan for power loss or file corruption."
+            }
+          ]
+        },
+        {
+          "id": "module_5",
+          "title": "Advanced Speech Structure and Persuasion",
+          "description": "Build on strong structural skills to incorporate storytelling, persuasive techniques, and format adaptation.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_5_topic_1",
+              "name": "Storytelling Techniques within Structure",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "short video on narrative arcs",
+                "article on embedding anecdotes in speeches"
+              ],
+              "practice_prompt": "Take the speech outline from Module 1 and insert a personal anecdote that illustrates your main point, ensuring it fits the overall structure."
+            },
+            {
+              "id": "module_5_topic_2",
+              "name": "Persuasive Argumentation",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "article on Aristotle's appeals (ethos, pathos, logos)",
+                "short video on crafting persuasive conclusions"
+              ],
+              "practice_prompt": "Rewrite the conclusion of your 7\u2011minute speech to incorporate at least two of the three rhetorical appeals, then rehearse delivering it with conviction."
+            },
+            {
+              "id": "module_5_topic_3",
+              "name": "Adapting Structure for Different Formats",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "comparison chart of TED Talk vs. business pitch formats",
+                "article on tailoring content to audience expectations"
+              ],
+              "practice_prompt": "Transform your existing speech outline into a 3\u2011minute TED\u2011style talk, noting changes to pacing, storytelling, and call\u2011to\u2011action."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "activity_log": [
+    {
+      "date": "2026-09-12",
+      "timestamp": "2026-09-12T18:28:26.488527",
+      "type": "assessment_completed",
+      "detail": "public speaking - 16.7%"
+    },
+    {
+      "date": "2026-09-12",
+      "timestamp": "2026-09-12T18:28:32.417749",
+      "type": "roadmap_generated",
+      "detail": "public speaking"
+    },
+    {
+      "date": "2026-09-12",
+      "timestamp": "2026-09-12T18:28:35.243403",
+      "type": "roadmap_generated",
+      "detail": "public speaking"
+    }
+  ],
+  "practice_attempts": []
+}

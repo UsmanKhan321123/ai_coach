@@ -1,0 +1,381 @@
+{
+  "student_id": "kabeer",
+  "created_at": "2026-09-12T18:29:34.505705",
+  "assessments": [
+    {
+      "topic": "javascript",
+      "difficulty_requested": "intermediate",
+      "total_questions": 6,
+      "correct_count": 1,
+      "score_percentage": 25.0,
+      "concept_scores": {
+        "this": 0.0,
+        "closures": 1.0,
+        "async_await": 0.0,
+        "prototype": 0.0,
+        "event_loop": 0.0,
+        "higher_order_functions": 0.5
+      },
+      "strengths": [
+        "closures"
+      ],
+      "weaknesses": [
+        "this",
+        "async_await",
+        "prototype",
+        "event_loop"
+      ],
+      "recommended_starting_level": "beginner",
+      "per_question_results": [
+        {
+          "id": "q1",
+          "concept": "this",
+          "question": "In non\u2011strict mode, what is the value of\u202fthis\u202finside an arrow function defined inside an object method?",
+          "user_answer": "The global object (window)",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "Arrow functions capture the this value from their surrounding lexical scope, not from how they are called."
+        },
+        {
+          "id": "q2",
+          "concept": "closures",
+          "question": "Which statement about JavaScript closures is FALSE?",
+          "user_answer": "Closures cannot be passed as arguments to other functions.",
+          "is_correct": true,
+          "score": 1.0,
+          "feedback": "Closures are first\u2011class values and can be passed around like any other function."
+        },
+        {
+          "id": "q3",
+          "concept": "async_await",
+          "question": "How can you catch errors from an async function when using async/await?",
+          "user_answer": "Check the return value for null.",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "A try\u2026catch surrounding the await expression captures any rejection thrown by the async function."
+        },
+        {
+          "id": "q4",
+          "concept": "prototype",
+          "question": "Given:\n\nfunction Person(name){ this.name = name; }\nPerson.prototype.greet = function(){ return `Hello, ${this.name}`; };\nconst alice = new Person('Alice');\n\nWhat is the result of\u202falice.__proto__ === Person.prototype?",
+          "user_answer": "false",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "When an object is created with new Person, its internal [[Prototype]] (__proto__) is set to Person.prototype."
+        },
+        {
+          "id": "q5",
+          "concept": "event_loop",
+          "question": "What will be the order of logs for the following code?\n\nconsole.log('A');\nsetTimeout(() => console.log('B'), 0);\nPromise.resolve().then(() => console.log('C'));\nconsole.log('D');",
+          "user_answer": "A C D B",
+          "is_correct": false,
+          "score": 0.0,
+          "feedback": "Synchronous logs run first (A, D), then microtasks (Promise then \u2192 C), and finally macrotasks (setTimeout \u2192 B)."
+        },
+        {
+          "id": "q6",
+          "concept": "higher_order_functions",
+          "question": "Explain the difference between Array.prototype.map and Array.prototype.forEach in terms of return value and typical use cases.",
+          "user_answer": "array.prototype.map retiurns a new array while foreach dont\n",
+          "is_correct": false,
+          "score": 0.5,
+          "feedback": "You identified that map returns a new array and forEach does not, but you omitted the typical use cases for each method."
+        }
+      ],
+      "timestamp": "2026-09-12T18:31:19.090526"
+    }
+  ],
+  "roadmaps": {
+    "javascript": {
+      "topic": "javascript",
+      "difficulty": "beginner",
+      "generated_at": "2026-09-12T18:31:25.675944",
+      "overview": "This roadmap guides a beginner from core JavaScript fundamentals to deeper mastery of context, prototypes, asynchronous patterns, and the event loop, with early focus on the student's weaker areas while reinforcing existing strengths.",
+      "modules": [
+        {
+          "id": "module_1",
+          "title": "Core Foundations Refresher",
+          "description": "Quickly review essential syntax, data types, functions, and closures to ensure a solid base before tackling advanced topics.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_1_topic_1",
+              "name": "Variables, Data Types, and Scope",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on variables and types",
+                "hands\u2011on coding exercise",
+                "short video tutorial"
+              ],
+              "practice_prompt": "Create a script that declares variables of different primitive types, manipulates them, and logs the results, demonstrating block vs function scope."
+            },
+            {
+              "id": "module_1_topic_2",
+              "name": "Functions and Parameter Handling",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on functions",
+                "interactive coding sandbox",
+                "short video tutorial"
+              ],
+              "practice_prompt": "Write a function that accepts a variable number of arguments, returns their sum, and test it with both regular calls and using the spread operator."
+            },
+            {
+              "id": "module_1_topic_3",
+              "name": "Closures (quick reinforcement)",
+              "status": "not_started",
+              "estimated_hours": 1,
+              "resources": [
+                "official docs section on closures",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Implement a counter factory that returns an object with increment and decrement methods, each preserving its own private count."
+            }
+          ]
+        },
+        {
+          "id": "module_2",
+          "title": "Understanding \"this\" and Context",
+          "description": "Deep dive into how JavaScript determines the value of `this` in different invocation patterns.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_2_topic_1",
+              "name": "Global and Function Context",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on this",
+                "short video tutorial",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Log the value of `this` inside a regular function called in the global scope, inside a strict\u2011mode function, and inside a function invoked with `new`."
+            },
+            {
+              "id": "module_2_topic_2",
+              "name": "Method Invocation and Implicit Binding",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on method calls",
+                "interactive coding sandbox"
+              ],
+              "practice_prompt": "Create an object with a method that uses `this` to reference its own properties, then call the method directly and via a detached reference to observe the binding change."
+            },
+            {
+              "id": "module_2_topic_3",
+              "name": "Arrow Functions and Lexical `this`",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on arrow functions",
+                "short video tutorial",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Rewrite a regular function that loses its `this` context when used as a callback into an arrow function, and verify that `this` now refers to the surrounding object."
+            },
+            {
+              "id": "module_2_topic_4",
+              "name": "Explicit Binding with call, apply, and bind",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on call/apply/bind",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Define a standalone function that logs a property from `this`. Use `call`, `apply`, and `bind` to invoke it with different objects and observe the output."
+            }
+          ]
+        },
+        {
+          "id": "module_3",
+          "title": "Prototypes and Inheritance",
+          "description": "Learn how JavaScript's prototype chain works and how to build inheritance patterns using both classic and ES6 syntax.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_3_topic_1",
+              "name": "Prototype Chain Basics",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on prototypes",
+                "short video tutorial",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Create an object, add a property to its prototype, and demonstrate that the property is accessible through the original object."
+            },
+            {
+              "id": "module_3_topic_2",
+              "name": "Object.create and Direct Prototype Assignment",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on Object.create",
+                "interactive coding sandbox"
+              ],
+              "practice_prompt": "Use `Object.create` to build a hierarchy of three objects, each inheriting from the previous, and verify property lookup at each level."
+            },
+            {
+              "id": "module_3_topic_3",
+              "name": "ES6 Classes and Prototype Relationship",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on classes",
+                "short video tutorial",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Define a class with a constructor and a method, instantiate it, then inspect its prototype to show where the method resides."
+            },
+            {
+              "id": "module_3_topic_4",
+              "name": "Inheritance with extends and super",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on class inheritance",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Create a base class `Animal` with a method, extend it with a subclass `Dog` that overrides the method and calls `super`, then instantiate `Dog` and call the method."
+            }
+          ]
+        },
+        {
+          "id": "module_4",
+          "title": "Asynchronous JavaScript: Promises and async/await",
+          "description": "Master modern asynchronous patterns, moving from callbacks to promises and the async/await syntax.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_4_topic_1",
+              "name": "Callback Patterns and Pitfalls",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on callbacks",
+                "short video tutorial",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Write a function that reads two simulated files using nested callbacks, then refactor it to avoid deep nesting by using named functions."
+            },
+            {
+              "id": "module_4_topic_2",
+              "name": "Promises Fundamentals",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on promises",
+                "interactive coding sandbox",
+                "short video tutorial"
+              ],
+              "practice_prompt": "Create a promise that resolves after a random delay, chain `.then` handlers to transform the value, and add a `.catch` to handle rejection."
+            },
+            {
+              "id": "module_4_topic_3",
+              "name": "Async/Await Syntax and Error Handling",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "official docs section on async functions",
+                "hands\u2011on coding exercise",
+                "short video tutorial"
+              ],
+              "practice_prompt": "Rewrite the promise chain from the previous topic using `async`/`await`, include `try/catch` blocks, and test it with both resolved and rejected scenarios."
+            },
+            {
+              "id": "module_4_topic_4",
+              "name": "Real\u2011World Async: Fetch API and Parallel Requests",
+              "status": "not_started",
+              "estimated_hours": 3,
+              "resources": [
+                "official docs section on Fetch API",
+                "hands\u2011on coding exercise",
+                "short video tutorial"
+              ],
+              "practice_prompt": "Fetch data from two public JSON endpoints concurrently using `Promise.all`, then display combined results in the console."
+            }
+          ]
+        },
+        {
+          "id": "module_5",
+          "title": "Event Loop and Concurrency Model",
+          "description": "Explore how JavaScript schedules tasks, handles microtasks, and manages the call stack to write non\u2011blocking code.",
+          "status": "not_started",
+          "topics": [
+            {
+              "id": "module_5_topic_1",
+              "name": "Call Stack, Task Queue, and Microtasks",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on event loop",
+                "short video tutorial",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Log messages from a synchronous function, a `setTimeout`, a resolved promise, and a `process.nextTick` (or equivalent) to observe execution order."
+            },
+            {
+              "id": "module_5_topic_2",
+              "name": "Event Loop Mechanics in the Browser",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on event loop",
+                "interactive visualization tool",
+                "short video tutorial"
+              ],
+              "practice_prompt": "Create a page with a button that triggers a heavy computation, a `setTimeout`, and a promise, then measure UI responsiveness."
+            },
+            {
+              "id": "module_5_topic_3",
+              "name": "Timing Functions and Their Interaction with Async Code",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on setTimeout/setInterval",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Implement a debounced search input that waits 300ms after the last keystroke before invoking an async fetch."
+            },
+            {
+              "id": "module_5_topic_4",
+              "name": "Performance Considerations and Avoiding Blocking",
+              "status": "not_started",
+              "estimated_hours": 2,
+              "resources": [
+                "official docs section on performance",
+                "short video tutorial",
+                "hands\u2011on coding exercise"
+              ],
+              "practice_prompt": "Refactor a CPU\u2011intensive loop to run in chunks using `setImmediate`/`setTimeout` and report the time saved compared to the blocking version."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "activity_log": [
+    {
+      "date": "2026-09-12",
+      "timestamp": "2026-09-12T18:31:19.113455",
+      "type": "assessment_completed",
+      "detail": "javascript - 25.0%"
+    },
+    {
+      "date": "2026-09-12",
+      "timestamp": "2026-09-12T18:31:25.729368",
+      "type": "roadmap_generated",
+      "detail": "javascript"
+    },
+    {
+      "date": "2026-09-12",
+      "timestamp": "2026-09-12T18:31:54.018450",
+      "type": "roadmap_generated",
+      "detail": "javascript"
+    }
+  ],
+  "practice_attempts": []
+}
