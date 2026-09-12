@@ -62,3 +62,6 @@ Student data is stored as plain JSON files in `./data/<student_id>.json`.
 - Persistence is file-based for simplicity; swapping `progress.py`'s
   storage functions for a real database later won't require touching
   any other file, since `app.py` only calls its public functions.
+
+
+## Store your GROQ_API_KEY in secrets.toml file inside the .streamlit folder
