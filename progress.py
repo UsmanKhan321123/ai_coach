@@ -53,6 +53,7 @@ def _default_student_data(student_id: str) -> Dict[str, Any]:
         "roadmaps": {},          # {topic: roadmap_dict} - one active roadmap per topic
         "activity_log": [],      # list of {"date": "YYYY-MM-DD", "type": "...", "detail": "..."}
         "practice_attempts": [], # list of {"timestamp","topic","concept","is_correct"}
+        "final_exams": [],       # graded final course examination attempts
     }
 
 
@@ -154,6 +155,18 @@ def log_practice_attempt(
     save_student_data(student_id, data)
 
 
+def record_final_exam(student_id: str, result: Dict[str, Any]) -> None:
+    """Stores a completed final examination and adds it to the activity log."""
+    data = load_student_data(student_id)
+    data.setdefault("final_exams", []).append(result)
+    _log(
+        data,
+        "final_exam_completed",
+        f"{result.get('topic')} - {result.get('score_percentage')}% ({result.get('grade')})",
+    )
+    save_student_data(student_id, data)
+
+
 # --------------------------------------------------------------------------
 # Analytics
 # --------------------------------------------------------------------------
@@ -193,6 +206,7 @@ def get_progress_summary(student_id: str) -> Dict[str, Any]:
     data = load_student_data(student_id)
     assessments = data.get("assessments", [])
     attempts = data.get("practice_attempts", [])
+    final_exams = data.get("final_exams", [])
 
     average_score = (
         round(sum(a["score_percentage"] for a in assessments) / len(assessments), 1)
@@ -217,6 +231,8 @@ def get_progress_summary(student_id: str) -> Dict[str, Any]:
         "concept_mastery": concept_mastery,
         "practice_accuracy": practice_accuracy,
         "current_streak_days": _calculate_streak(data.get("activity_log", [])),
+        "final_exams": len(final_exams),
+        "best_final_grade": max((e.get("score_percentage", 0) for e in final_exams), default=0),
     }
 
 
@@ -233,11 +249,20 @@ def render_progress_dashboard(student_id: str) -> None:
 
     st.subheader("📊 Your Progress Dashboard")
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("Assessments Taken", summary["total_assessments"])
     col2.metric("Average Score", f"{summary['average_score']}%")
     col3.metric("Practice Accuracy", f"{summary['practice_accuracy']}%")
     col4.metric("🔥 Streak", f"{summary['current_streak_days']} day(s)")
+    col5.metric("Final Exams", summary["final_exams"])
+
+    if data.get("final_exams"):
+        st.markdown("### Final Examination Results")
+        for exam in reversed(data["final_exams"]):
+            st.markdown(
+                f"**{exam.get('topic')}** · Grade **{exam.get('grade')}** · "
+                f"{exam.get('correct_count')}/{exam.get('total_questions')} ({exam.get('score_percentage')}%)"
+            )
 
     st.markdown("### Active Roadmaps")
     roadmaps = data.get("roadmaps", {})

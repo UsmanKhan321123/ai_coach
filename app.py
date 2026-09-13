@@ -39,9 +39,30 @@ from progress import (
     log_practice_attempt,
     get_progress_summary,
     render_progress_dashboard,
+    record_final_exam,
 )
+from final_assessment import render_final_quiz, render_final_result
 
 st.set_page_config(page_title="AI Learning Coach", page_icon="🎓", layout="wide")
+
+st.markdown(
+    """
+    <style>
+    .stApp { background: #0b1f3a; color: #ffffff; }
+    [data-testid="stSidebar"] { background: #061426; }
+    [data-testid="stSidebar"] * { color: #ffffff !important; }
+    .stApp p, .stApp label, .stApp span, .stApp li, .stApp td, .stApp th,
+    .stApp .stMarkdown, .stApp [data-testid="stCaptionContainer"] { color: #ffffff; }
+    h1, h2, h3, h4, h5, h6 { color: #ffffff; letter-spacing: 0; }
+    .hero { padding: 1.7rem 2rem; border-radius: 12px; background: #123b69; color: #ffffff; margin-bottom: 1.4rem; }
+    .hero h1, .hero p { color: #ffffff; margin-bottom: .35rem; }
+    .exam-banner { display:flex; justify-content:space-between; align-items:center; padding: .85rem 1rem; margin: .75rem 0 1.25rem; border-left: 5px solid #f4b860; background:#123b69; color:#ffffff; border-radius: 6px; font-size:1.05rem; }
+    #exam-timer { color:#ffd166; font-size:1.35rem; font-weight:700; font-variant-numeric: tabular-nums; }
+    div[data-testid="stMetric"] { background: #123b69; border: 1px solid #2d5d91; padding: .65rem; border-radius: 8px; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # --------------------------------------------------------------------------
@@ -57,6 +78,7 @@ def _init_session_state() -> None:
         "active_roadmap": None,
         "coach_chat_history": [],
         "active_exercise": None,
+        "final_exam_recorded": set(),
     }
     for key, value in defaults.items():
         if key not in st.session_state:
@@ -92,7 +114,7 @@ with st.sidebar:
     else:
         page = st.radio(
             "Navigate",
-            options=["Start New Topic", "Assessment", "Roadmap", "Coach & Practice", "Progress Dashboard"],
+            options=["Start New Topic", "Assessment", "Roadmap", "Coach & Practice", "Final Quiz", "Progress Dashboard"],
             label_visibility="collapsed",
         )
 
@@ -105,6 +127,10 @@ with st.sidebar:
 # --------------------------------------------------------------------------
 
 def render_start_page() -> None:
+    st.markdown(
+        "<div class='hero'><h1>Build skills that stick.</h1><p>Learn with a personalized roadmap, guided practice, and a final course examination.</p></div>",
+        unsafe_allow_html=True,
+    )
     st.header("What do you want to learn today?")
 
     with st.form("start_topic_form"):
@@ -298,6 +324,30 @@ def render_dashboard_page() -> None:
 
 
 # --------------------------------------------------------------------------
+# Page: Final Quiz
+# --------------------------------------------------------------------------
+
+def render_final_quiz_page() -> None:
+    roadmap = st.session_state.active_roadmap
+    if not roadmap:
+        st.info("Generate a roadmap first. Your final course quiz will appear here afterwards.")
+        return
+
+    result_key = f"final_result::{roadmap['topic']}::{roadmap['difficulty']}"
+    result = st.session_state.get(result_key)
+    if result:
+        render_final_result(result)
+        return
+
+    result = render_final_quiz(roadmap["topic"], roadmap["difficulty"])
+    if result:
+        if result_key not in st.session_state.final_exam_recorded:
+            record_final_exam(st.session_state.student_id, result)
+            st.session_state.final_exam_recorded.add(result_key)
+        render_final_result(result)
+
+
+# --------------------------------------------------------------------------
 # Router
 # --------------------------------------------------------------------------
 
@@ -310,6 +360,7 @@ else:
         "Assessment": render_assessment_page,
         "Roadmap": render_roadmap_page,
         "Coach & Practice": render_coach_page,
+        "Final Quiz": render_final_quiz_page,
         "Progress Dashboard": render_dashboard_page,
     }
     page_renderers[page]()

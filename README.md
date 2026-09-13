@@ -14,6 +14,7 @@ handing over exact answers.
 | `roadmap.py`     | Builds a personalized module/topic roadmap from assessment results     |
 | `ai_coach.py`    | Central Groq LLM access + explanations, exercises, hints, chat         |
 | `progress.py`    | JSON-based persistence, analytics, and the progress dashboard          |
+| `final_assessment.py` | 100-question, 90-minute final examination and grading              |
 
 ## Setup
 
@@ -50,8 +51,12 @@ handing over exact answers.
 4. **Coach & Practice** — get guided explanations, hands-on exercises with
    hints (not solutions), and a chat coach that nudges you toward the
    answer instead of giving it away.
-5. **Progress Dashboard** — see completion %, concept mastery, practice
-   accuracy, and your study streak.
+5. **Final Quiz** — after the roadmap is generated, take a 100-question
+   course examination within 90 minutes. Each question is worth one mark;
+   the app grades it automatically and assigns A-F grades using these bands:
+   A (90-100%), B (80-89%), C (70-79%), D (60-69%), F (below 60%).
+6. **Progress Dashboard** — see completion %, concept mastery, practice
+   accuracy, study streak, and saved final examination results.
 
 Student data is stored as plain JSON files in `./data/<student_id>.json`.
 
